@@ -11,10 +11,12 @@ export class AppComponent implements OnInit {
   selectedPersona = 2;
   totalPrecioN: number = 0;
   totalPrecioA: number = 0;
+  totalPrecioNC: () => number = () => 0;
   numeroPersonasTotal: number[]; 
 
   forma : FormGroup;
   formaB : FormGroup;
+  formaC : FormGroup;
 
   ngOnInit() {
 
@@ -27,6 +29,12 @@ export class AppComponent implements OnInit {
       formaB_control : new FormControl('')
       }
     );
+
+    this.formaC = new FormGroup( {
+      formaC_control : new FormControl('')
+      });
+    
+     this.onChanges();
   
     this.numeroPersonasTotal = [ 1, 2, 3, 4, 5, 6, 7 ];
     console.log(this.precio, this.selectedPersona);
@@ -45,4 +53,15 @@ export class AppComponent implements OnInit {
     console.log(selectedPersonaN);
     this.totalPrecioN = this.precio * selectedPersonaN;
  }
+
+ // onChanges
+ onChanges() {
+   this.formaC.valueChanges.subscribe(data => {
+      this.totalPrecioC(data);
+   });
+  }
+
+  totalPrecioC(data) {
+    this.totalPrecioNC = () => this.precio * Number(data.formaC_control);
+  }
 }

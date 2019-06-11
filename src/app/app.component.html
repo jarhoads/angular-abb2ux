@@ -35,3 +35,23 @@
         <span>USD - {{totalPrecioN}}</span>
     </div>
   </form>
+
+  <form [formGroup]="formaC">
+        <select formControlName="formaC_control" 
+                [value]="selectedPersona">
+          <option *ngFor="let persona of numeroPersonasTotal" [value]="persona">
+            {{ persona }}
+          </option>
+        </select>
+
+
+      <div>
+        <span>Precio por persona</span>
+        <span>USD - {{precio}}</span>
+    </div>
+    <hr>
+    <div>
+        <span>Total</span>
+        <span>USD - {{totalPrecioNC()}}</span>
+    </div>
+  </form>
