@@ -1,57 +1,64 @@
 <form [formGroup]="forma">
-      <select [(value)]="selectedPersona" (ngModelChange)="totalPrecio(selectedPersona)" formControlName="forma_control">
-              <option *ngFor="let persona of numeroPersonasTotal" [value]="persona">{{persona}}</option>
-      </select>
+  <select [(value)]="selectedPersona" (ngModelChange)="totalPrecio(selectedPersona)" formControlName="forma_control">
+          <option *ngFor="let persona of numeroPersonasTotal" [value]="persona">{{persona}}</option>
+  </select>
 
-      <div>
-          <span>Precio por persona</span>
-          <span>USD {{precio}}</span>
-      </div>
-      <hr>
-      <div>
-          <span>Total</span>
-          <span>USD {{totalPrecioA}}</span>
-      </div>
-      <!-- <button type="submit" class="btn btn-primary btn-block py-3 mt-4">Reservar</button> -->
-  </form>
+  <div>
+      <span>Precio por persona</span>
+      <span>USD {{precio}}</span>
+  </div>
+  <hr>
+  <div>
+      <span>Total</span>
+      <span>USD {{totalPrecioA}}</span>
+  </div>
+  <!-- <button type="submit" class="btn btn-primary btn-block py-3 mt-4">Reservar</button> -->
+</form>
 
-  <form [formGroup]="formaB">
-        <select formControlName="formaB_control" 
-                (ngModelChange)="setTotalPrecisioN($event)" 
-                [value]="selectedPersona">
-          <option *ngFor="let persona of numeroPersonasTotal" [value]="persona">
-            {{ persona }}
-          </option>
-        </select>
-
-
-      <div>
-        <span>Precio por persona</span>
-        <span>USD - {{precio}}</span>
-    </div>
-    <hr>
-    <div>
-        <span>Total</span>
-        <span>USD - {{totalPrecioN}}</span>
-    </div>
-  </form>
-
-  <form [formGroup]="formaC">
-        <select formControlName="formaC_control" 
-                [value]="selectedPersona">
-          <option *ngFor="let persona of numeroPersonasTotal" [value]="persona">
-            {{ persona }}
-          </option>
-        </select>
+<form [formGroup]="formaB">
+    <select formControlName="formaB_control" 
+            (ngModelChange)="setTotalPrecisioN($event)" 
+            [value]="selectedPersona">
+      <option *ngFor="let persona of numeroPersonasTotal" [value]="persona">
+        {{ persona }}
+      </option>
+    </select>
 
 
-      <div>
-        <span>Precio por persona</span>
-        <span>USD - {{precio}}</span>
-    </div>
-    <hr>
-    <div>
-        <span>Total</span>
-        <span>USD - {{totalPrecioNC()}}</span>
-    </div>
-  </form>
+  <div>
+    <span>Precio por persona</span>
+    <span>USD - {{precio}}</span>
+</div>
+<hr>
+<div>
+    <span>Total</span>
+    <span>USD - {{totalPrecioN}}</span>
+</div>
+
+<input formControlName="formaB_totalPrecio"  
+       [value]="totalPrecioN">
+
+</form>
+
+<br>
+<hr>
+
+<form [formGroup]="formaC">
+    <select formControlName="formaC_control" 
+            [value]="selectedPersona">
+      <option *ngFor="let persona of numeroPersonasTotal" [value]="persona">
+        {{ persona }}
+      </option>
+    </select>
+
+
+  <div>
+    <span>Precio por persona</span>
+    <span>USD - {{precio}}</span>
+</div>
+<hr>
+<div>
+    <span>Total</span>
+    <span>USD - {{totalPrecioNC()}}</span>
+</div>
+</form>

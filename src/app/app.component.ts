@@ -17,24 +17,29 @@ export class AppComponent implements OnInit {
   forma : FormGroup;
   formaB : FormGroup;
   formaC : FormGroup;
+  formaD : FormGroup;
 
   ngOnInit() {
 
     this.forma = new FormGroup( {
       forma_control : new FormControl('')
-      }
-    );
+    });
 
     this.formaB = new FormGroup( {
-      formaB_control : new FormControl('')
-      }
-    );
+      formaB_control : new FormControl(''),
+      formaB_totalPrecio: new FormControl(this.totalPrecioN)
+    });
 
     this.formaC = new FormGroup( {
       formaC_control : new FormControl('')
-      });
+    });
+
+    this.formaD = new FormGroup({
+      numeroPersonas: new FormControl(this.selectedPersona),
+      totalPrecio: new FormControl(this.totalPrecioNC())
+    });
     
-     this.onChanges();
+    this.onChanges();
   
     this.numeroPersonasTotal = [ 1, 2, 3, 4, 5, 6, 7 ];
     console.log(this.precio, this.selectedPersona);
