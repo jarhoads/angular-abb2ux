@@ -12,15 +12,9 @@ export class AppComponent implements OnInit {
   totalPrecioN: number = 0;
   totalPrecioA: number = 0;
   numeroPersonasTotal: number[]; 
-  
-  data: any[];
+
   forma : FormGroup;
   formaB : FormGroup;
-
-  constructor(){
-    this.numeroPersonasTotal = [ 1, 2, 3, 4, 5, 6, 7 ];
-    console.log(this.precio, this.selectedPersona);
-  }
 
   ngOnInit() {
 
@@ -34,7 +28,7 @@ export class AppComponent implements OnInit {
       }
     );
   
-    
+    this.numeroPersonasTotal = [ 1, 2, 3, 4, 5, 6, 7 ];
     console.log(this.precio, this.selectedPersona);
   }
   
